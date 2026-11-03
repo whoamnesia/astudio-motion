@@ -1,0 +1,29 @@
+Name,Family,CSS,GSAP,Use for,Feel,Avoid
+ui-out (strong ease-out),ease-out,"cubic-bezier(0.23, 1, 0.32, 1)",power4.out (close),"UI enter/exit, dropdowns, popovers, toasts, button release","snappy, responsive, lands softly",long marketing moves (feels abrupt)
+ui-in-out (strong),ease-in-out,"cubic-bezier(0.77, 0, 0.175, 1)",power4.inOut (close),"on-screen movement and morphs, tab indicators, programmatic moves","deliberate, controlled",entrances (delays the moment the user watches)
+drawer (iOS-like),ease-out,"cubic-bezier(0.32, 0.72, 0, 1)",custom,"drawers, sheets, side panels","native, weighty",tiny elements
+expo-out,ease-out,"cubic-bezier(0.16, 1, 0.3, 1)",expo.out,"hero arrivals, camera push/pull, video arrivals, scroll reveals","fast start, long tail - premium",fast UI feedback under 150ms
+quint-out,ease-out,"cubic-bezier(0.22, 1, 0.36, 1)",power4.out,"titles landing, cards arriving",confident,-
+quart-out,ease-out,"cubic-bezier(0.25, 1, 0.5, 1)",power3.out,general marketing entrances,"smooth, crisp",-
+cubic-out,ease-out,"cubic-bezier(0.33, 1, 0.68, 1)",power2.out,"small elements, secondary moves",gentle,as the only ease of a whole film (flat default look)
+quad-out,ease-out,"cubic-bezier(0.5, 1, 0.89, 1)",power1.out,"subtle fades, color changes",soft,-
+sine-out,ease-out,"cubic-bezier(0.61, 1, 0.88, 1)",sine.out,"opacity, ambient drifts",very soft,position moves that must feel decisive
+circ-out,ease-out,"cubic-bezier(0, 0.55, 0.45, 1)",circ.out,"snappy reveals, clip-path wipes",quick then glide,-
+back-out (small overshoot),overshoot,"cubic-bezier(0.34, 1.56, 0.64, 1)",back.out(1.4-1.7),"playful arrivals, icons popping, video entries (sparingly)","lively, slight overshoot","utility UI (dropdowns, menus, toggles), opacity/colour"
+quad-in-out,ease-in-out,"cubic-bezier(0.45, 0, 0.55, 1)",power1.inOut,"colour floods, gentle loops",even,-
+cubic-in-out,ease-in-out,"cubic-bezier(0.65, 0, 0.35, 1)",power2.inOut,"camera moves, pans, colour floods, layout morphs",cinematic,entrances
+quart-in-out,ease-in-out,"cubic-bezier(0.76, 0, 0.24, 1)",power3.inOut,"page transitions, big wipes",dramatic,small UI
+expo-in-out,ease-in-out,"cubic-bezier(0.87, 0, 0.13, 1)",expo.inOut,"full-screen transitions, slideshow seams",very dramatic,frequent UI
+sine-in-out,ease-in-out,"cubic-bezier(0.37, 0, 0.63, 1)",sine.inOut,"ambient loops with meaning, pendulum",breathing,idle wobble used to fill time
+cubic-in,ease-in,"cubic-bezier(0.32, 0, 0.67, 0)",power2.in,"exits that accelerate away, zoom-through",leaving,UI entrances (never ease-in on UI)
+quart-in,ease-in,"cubic-bezier(0.5, 0, 0.75, 0)",power3.in,"video exits, zoom through a button",accelerating,UI
+quint-in,ease-in,"cubic-bezier(0.64, 0, 0.78, 0)",power4.in,exit side of a cut-the-curve seam,strong acceleration,UI
+m3-emphasized-decelerate,material,"cubic-bezier(0.05, 0.7, 0.1, 1)",custom,Android/M3 elements entering,expressive,-
+m3-emphasized-accelerate,material,"cubic-bezier(0.3, 0, 0.8, 0.15)",custom,Android/M3 elements exiting,expressive,-
+m3-standard,material,"cubic-bezier(0.2, 0, 0, 1)",custom,Android utility transitions,neutral,-
+linear,linear,linear,none,"constant motion: marquee, progress, rotation, scrub-linked scroll, containerAnimation",mechanical,anything that starts or stops
+spring-apple-default,spring,linear() from scripts/easing.py spring --bounce 0,-,"gestures, alive elements (SwiftUI .smooth)","natural, no overshoot",-
+spring-snappy,spring,linear() from easing.py spring --bounce 0.15,-,"toggles, sheets snapping, drag release",quick with a hint of life,-
+spring-bouncy,spring,linear() from easing.py spring --bounce 0.3,-,"playful delight, celebrations, kids apps",playful,"productivity UI, opacity, colour"
+spring-premium (damping 0.75-0.85),spring,linear() from easing.py spring --damping 0.8,"elastic.out(1,0.6) approx","video morphs, container morphs, product launch films","premium, a tiny settle",opacity/colour (never bounce them)
+steps (frame-rate snap),stepped,"steps(n, jump-none)",SteppedEase / snap,"line boil, low-fps hand-drawn look, dot-matrix",deliberately choppy,smooth UI

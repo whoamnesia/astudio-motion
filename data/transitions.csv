@@ -1,0 +1,20 @@
+Transition,Medium,Keywords,How it is built,Duration,Ease,Cause / when,Avoid
+Cut the Curve (default seam),video,scene seam default cut direction current,"exit accelerates along the film's current, entry enters mid-flight on the same axis and speed; no overlap",0.3-0.6s each side,exit power4.in / entry power4.out,default boundary between beats,"crossfades, entries from rest"
+Zoom-through (forward),video,zoom through push camera forward z,camera pushes into an element until its fill becomes the next frame,0.35-0.6s,power3.in then power4.out,pushing deeper into the same thought,mirrored scale signs across the cut
+Inverse zoom (backward),video,pull back arrival reveal,"the next world arrives from beyond the camera, scale shrinking to rest",0.5-0.8s,expo.out,"arrival, something bigger lands",grow-from-small entry after a pull
+Object becomes the world,video,object grows into world card pill expands,"a pill/card grows past the frame, radius shrinking; surroundings blur ~15px and fade",0.65s,power2.inOut,entering a product or feature,-
+Morph,video ui,morph container widen icon card prompt box,one container changes size/radius/colour into the next; content swaps with a short blur,0.2-0.45s,power3.out / spring 0.8,states of one product,overlapping old and new text (exit text early)
+Carry across,video,carry carrier dock result,a result shrinks 1->0.6 with blur peaking mid-move and lands inside the next layout,0.4-0.6s,power2.inOut,handing the outcome to the next scene,-
+Colour flood,video web,colour flood background change,the hero stays; the ground changes colour,0.4s,power2.inOut,chapter change without losing the subject,-
+Whip,video,whip pan smear fast,horizontal/vertical smear; arriving element lands blurred and sharpens,0.13-0.3s,expo.inOut,"energy, montage",more than 3 in a row
+Iris from the click,video web,iris circle reveal click,clip-path: circle() opens from the clicked point,0.15-0.4s,ui-out,a click opens a new world,-
+Dip cut,video,dip darken cut,"outgoing frame darkens ~40% for 3 frames, then hard cut",3 frames,-,make a hard cut read as intentional,-
+Blur swap on one stage,video ui,blur swap text replace,out: opacity->0 with ~8px blur; in: blur->0,0.13-0.2s,ease,replacing content in place,-
+Match cut,video,match cut same anchor,one object replaced by another at the same anchor so the gaze never moves,1 frame,-,show equivalence or evolution,-
+Foreground wipe / flash,video,foreground wipe flash defocus,"a defocused foreground object sweeps across, or a centre glow blows out to white",0.3-0.6s,power2.inOut,chapter cut with energy,overuse
+Rack-focus blur cut,video,rack focus blur visible cut,outgoing blurs heavily as incoming sharpens - the one visible dissolve allowed,0.3-0.5s,power2.inOut,a deliberate soft chapter break,using it as the default
+View Transitions crossfade + morph,web,view transitions api page route,document.startViewTransition / CSS @view-transition; shared elements via view-transition-name,250-500ms,ui-out,route change in an MPA/SPA,naming many elements (cost); missing reduced-motion override
+Page wipe (Barba / overlay),web,page transition overlay wipe barba,"an overlay panel wipes over, route swaps underneath, overlay leaves",0.6-1s total,expo.inOut,portfolio/agency sites,blocking navigation for long
+Shared element (FLIP),web ui,shared element flip layoutId card expand,"measure first/last, invert, play with transforms",0.3-0.45s,spring / ui-in-out,list -> detail,distorted text (counter-scale children)
+Scroll pinned scene change,web,pinned scroll scene scrollytelling,section pins; scrubbed timeline swaps states,1-3 screens,none (scrub),story told by scroll,pinning more than ~3 screens; hijacking
+Hard cut,video,hard cut punch in,instant change,0,-,inside a scene (punch-ins); at most a third of seams,worlds crossfading into each other

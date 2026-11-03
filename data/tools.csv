@@ -1,0 +1,31 @@
+Tool,Category,Keywords,Best for,Output,Cost / licence,Agent workflow,Skill
+CSS transitions / @starting-style,web code,css transition starting-style hover state,"state changes, entry on mount, hover, press",code,free,write CSS; render with scripts/motion.cjs,ui-motion
+CSS animations + scroll-driven (animation-timeline),web code,keyframes scroll-timeline view-timeline,"predetermined motion off the main thread, scroll progress without JS",code,free (Chromium/Safari 26+; check support),write CSS + @supports fallback,ui-motion
+Web Animations API,web code,waapi element.animate,programmatic motion with CSS performance,code,free,element.animate(); pause/seek for review,ui-motion
+View Transitions API,web code,view transition route page shared element,page/route and state transitions with shared elements,code,free (same-document widely supported; cross-document in Chromium/Safari),startViewTransition / @view-transition,ui-motion
+"Motion (motion.dev, ex Framer Motion)",web library,framer motion react spring layoutId AnimatePresence,"React springs, exit animations, layout animations, gestures",code,MIT,npm i motion; motion/react,ui-motion
+GSAP 3.13+ (all plugins free),web library,gsap scrolltrigger splittext flip morphsvg drawsvg,"timelines, scroll storytelling, text, SVG, complex choreography, video timelines",code,free incl. commercial (Webflow),npm i gsap; register plugins; useGSAP,gsap
+Lenis,web library,smooth scroll lenis,smooth scrolling on desktop paired with ScrollTrigger,code,MIT,off for touch and reduced motion,gsap
+anime.js 4,web library,animejs,"lightweight timelines, SVG, stagger grids",code,MIT,npm i animejs,gsap
+Lottie / dotLottie,runtime,lottie bodymovin dotlottie json,"designer-made vector animation: icons, illustrations, onboarding",json/.lottie,MIT runtimes,"export from AE (Bodymovin), Figma Motion, Lottie Creator, Cavalry; play with dotlottie-web",lottie-rive
+Rive,runtime + editor,rive state machine data binding view model,"interactive animation with state machines and data binding in product UI, games, characters",riv,editor freemium; runtimes MIT,build in Rive editor; wire inputs/view models in code,lottie-rive
+SVG + SMIL/CSS,web code,svg stroke dash morph path,"icons, logos, diagrams, line drawing, loaders",code,free,hand-write SVG; GSAP DrawSVG/MorphSVG for complex,svg-motion
+Three.js r18x,web 3D,threejs webgl webgpu tsl,"3D scenes, product viewers, particles, shaders on the web",code,MIT,import map / npm; render with scripts/motion.cjs,threejs
+React Three Fiber + drei,web 3D,r3f drei react three,3D in React apps,code,MIT,useFrame refs; useGLTF; Suspense,threejs
+Spline,web 3D editor,spline 3d scene embed,fast designer-made 3D scenes and interactions,scene URL / code,freemium,@splinetool/react-spline; events via API,threejs
+PixiJS,web 2D GPU,pixijs canvas 2d webgl sprites,"many sprites, 2D GPU effects, games",code,MIT,npm i pixi.js,shaders
+Babylon.js / PlayCanvas,web 3D,babylon playcanvas engine,"full 3D engines, XR, games",code,Apache/MIT,choose when the project already uses them,threejs
+GLSL / WGSL / TSL,shader,glsl wgsl tsl shader fragment,"backgrounds, distortions, generative art, post FX",code,free,scripts/motion.cjs shader file.frag renders and checks,shaders
+HTML + GSAP rendered to video,video from code,hyperframes html video render mp4 launch film promo explainer social clip product video saas app demo,"launch films, explainers, social clips, kinetic type, data video",mp4/webm/gif,free (our renderer: Playwright + ffmpeg),scripts/motion.cjs video; seekable paused timeline,motion-video
+HyperFrames CLI,video from code,hyperframes heygen launch film promo,"the same with Studio preview, registry blocks, checks",mp4,Apache-2.0 (some features paid),npx hyperframes init/check/render,motion-video
+Remotion,video from code,remotion react video launch film parameterised batch,"React-based video, parameterised/batch rendering",mp4,company licence required for some orgs,npx create-video; useCurrentFrame,motion-video
+After Effects 26,pro app,after effects ae expressions extendscript bodymovin,"broadcast/brand motion, character, compositing; 3D meshes + Substance materials","aep, mp4, lottie",paid (Creative Cloud),write expressions and .jsx scripts the user runs; specs for handoff,motion-tools
+Cavalry,pro app,cavalry procedural 2d,"procedural 2D motion, loops, data viz, Lottie export","cv, mp4, lottie",free since 2026 (Pro features paid),JavaScript expressions/scripts; handoff specs,motion-tools
+Cinema 4D 2026 + Redshift,pro app,c4d cinema mograph cloner redshift,"3D motion graphics, MoGraph cloners/effectors, product films","c4d, renders",paid,Python scripts / setups; specs,motion-tools
+Unreal Engine 5.7 Motion Design,pro app,unreal motion design avalanche broadcast cloner,"real-time broadcast/event graphics, lower thirds, rundowns","uasset, live output",free (royalty terms),Python/Blueprint guidance; setup steps,motion-tools
+Blender 5.2 LTS,pro app,blender bpy geometry nodes eevee cycles,"3D motion graphics, product renders, procedural loops, GLB for web","blend, png/mp4, glb",free (GPL),bpy scripts headless (blender -b -P) or Blender MCP,blender
+Figma Motion (open beta),design tool,figma motion timeline keyframes motion variables,"motion inside the design file: components with motion, motion variables, export CSS/React/motion.dev","in-file, mp4/gif/svg/webm, code",Figma plans,Figma MCP: get_motion_context to implement; use_figma motion APIs to author,motion-tools
+Jitter,design tool,jitter figma animate,quick UI/social animations from Figma frames,mp4/gif/lottie,freemium,handoff specs,motion-tools
+React Native Reanimated 4 / Expo,native,reanimated expo react native gesture,"mobile UI motion on the UI thread, gestures, haptics",code,MIT,"shared values, worklets, CSS transitions in Reanimated 4",native-motion
+SwiftUI,native,swiftui animation spring matchedgeometry phaseanimator,"iOS motion: springs, matched geometry, phase/keyframe animators",code,Apple,"withAnimation(.smooth), .spring(duration:bounce:)",native-motion
+Jetpack Compose,native,compose animate android,"Android motion: animate*AsState, AnimatedContent, shared elements",code,Apache-2.0,"spring(dampingRatio, stiffness)",native-motion

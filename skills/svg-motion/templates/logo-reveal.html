@@ -1,0 +1,91 @@
+<!doctype html>
+<!--
+astudio-motion logo reveal template - "build from construction" + "mark-to-wordmark unfold".
+Replace the SVG in #logo with the client's mark: give each constructive part class="part" (+ data-from="left|right|top|bottom|scale"),
+the wordmark group id="wordmark" (letters as <path class="letter">), and keep the final lockup positions as authored.
+Timeline is paused and deterministic: window.__seek(t) renders time t (used by scripts/motion.cjs);
+open with ?play to preview in a browser. Brand values live in :root.
+Render: node <root>/scripts/motion.cjs video logo-reveal.html --duration 3.2 --fps 30 --width 1920 --height 1080 --out logo-sting.mp4 --gif
+-->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Logo reveal</title>
+<style>
+  :root { --ground: #14161C; --ink: #ECEDEF; --accent: #E0592A; --logo-h: 22vh; }
+  html, body { margin: 0; height: 100%; background: var(--ground); overflow: hidden; }
+  .stage { position: fixed; inset: 0; display: grid; place-items: center; }
+  #logo { height: var(--logo-h); width: auto; overflow: visible; }
+  #logo .part, #logo .letter { transform-box: fill-box; transform-origin: 50% 50%; }
+  .tagline { position: fixed; left: 0; right: 0; top: calc(50% + var(--logo-h) * 0.75); text-align: center;
+    font: 500 clamp(16px, 2vw, 34px)/1.2 system-ui, sans-serif; letter-spacing: .04em; color: var(--ink); opacity: .78; }
+</style></head>
+<body>
+<div class="stage">
+  <svg id="logo" viewBox="0 0 1180 300" aria-label="astudio" role="img">
+    <!-- MARK (replace): a corner + a disc, built from its parts -->
+    <g id="mark">
+      <rect class="part" data-from="top"    x="20"  y="20"  width="70"  height="260" rx="6" fill="var(--ink)"/>
+      <rect class="part" data-from="left"   x="20"  y="210" width="260" height="70"  rx="6" fill="var(--ink)"/>
+      <circle class="part" data-from="scale" cx="205" cy="105" r="62" fill="var(--accent)"/>
+    </g>
+    <!-- WORDMARK (replace): one path per letter; text kept here only as a placeholder -->
+    <defs><clipPath id="wordclip" clipPathUnits="userSpaceOnUse"><rect id="wordclip-rect" x="0" y="-100" width="4000" height="600"/></clipPath></defs>
+    <g clip-path="url(#wordclip)"><!-- static clip holder: the clip must not move with the wordmark -->
+    <g id="wordmark" fill="var(--ink)">
+      <text class="letter" x="340" y="225" font-family="system-ui, sans-serif" font-weight="700" font-size="210" letter-spacing="-6">a</text>
+      <text class="letter" x="460" y="225" font-family="system-ui, sans-serif" font-weight="700" font-size="210" letter-spacing="-6">s</text>
+      <text class="letter" x="560" y="225" font-family="system-ui, sans-serif" font-weight="700" font-size="210" letter-spacing="-6">t</text>
+      <text class="letter" x="630" y="225" font-family="system-ui, sans-serif" font-weight="700" font-size="210" letter-spacing="-6">u</text>
+      <text class="letter" x="755" y="225" font-family="system-ui, sans-serif" font-weight="700" font-size="210" letter-spacing="-6">d</text>
+      <text class="letter" x="880" y="225" font-family="system-ui, sans-serif" font-weight="700" font-size="210" letter-spacing="-6">i</text>
+      <text class="letter" x="935" y="225" font-family="system-ui, sans-serif" font-weight="700" font-size="210" letter-spacing="-6">o</text>
+    </g></g>
+  </svg>
+</div>
+<div class="tagline" id="tagline">digital studio</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script>
+  // Measured numbers (adjust per brand personality - reference/direction.md §2)
+  const T = { build: 0.95, partStagger: 0.12, settle: 0.35, shift: 0.7, letters: 0.55, letterStagger: 0.035, tagline: 0.45, hold: 1.0 };
+  const mark = document.getElementById('mark'), word = document.getElementById('wordmark');
+  const parts = [...document.querySelectorAll('#mark .part')], letters = [...document.querySelectorAll('#wordmark .letter')];
+
+  // Centre the mark alone first: offset = half the distance between the mark's centre and the lockup's centre.
+  const svg = document.getElementById('logo');
+  const mb = mark.getBBox(), lb = svg.getBBox();
+  const centreShift = (lb.x + lb.width / 2) - (mb.x + mb.width / 2);
+
+  const tl = gsap.timeline({ paused: true, defaults: { ease: 'expo.out' } });
+  // 1) build the mark from its parts
+  parts.forEach((p, i) => {
+    const d = p.dataset.from || 'scale', far = 260;
+    const from = d === 'left' ? { x: -far } : d === 'right' ? { x: far } : d === 'top' ? { y: -far } : d === 'bottom' ? { y: far } : { scale: 0.6 };
+    tl.from(p, { ...from, opacity: 0, duration: T.build }, i * T.partStagger);
+  });
+  tl.set(mark, { x: centreShift }, 0);
+  // the wordmark is revealed from behind the mark: a clip edge that rides on the mark's right edge
+  const gap = 24, clip = document.getElementById('wordclip-rect');
+  const edge = (dx) => mb.x + mb.width + gap + dx;
+  tl.set(clip, { attr: { x: edge(centreShift) } }, 0);
+  // 2) the mark shifts into the lockup while the wordmark unfolds from behind it
+  const unfold = T.build + (parts.length - 1) * T.partStagger + T.settle;
+  tl.to(mark, { x: 0, duration: T.shift, ease: 'expo.inOut' }, unfold)
+    .to(clip, { attr: { x: edge(0) }, duration: T.shift, ease: 'expo.inOut' }, unfold)
+    // the whole wordmark slides out from behind the mark in reading order; letters sharpen in sequence
+    .fromTo(word, { x: -(word.getBBox().width + gap) }, { x: 0, duration: T.shift + 0.3, ease: 'expo.out' }, unfold + 0.08)
+    .from(letters, { filter: 'blur(6px)', duration: T.letters, stagger: T.letterStagger, ease: 'power2.out' }, unfold + 0.08)
+    .from('#tagline', { opacity: 0, y: 10, duration: T.tagline, ease: 'power3.out' }, unfold + T.shift * 0.75)
+    .to({}, { duration: T.hold });  // hold the exact lockup
+
+  // Frame 0 is composed, never an empty field: the render starts OPEN seconds into the build, so the first part is
+  // already arriving on the first frame (the thumbnail / autoplay preview). motion.cjs check -> no empty-opening.
+  const OPEN = 0.3;
+  window.__duration = tl.duration() - OPEN;
+  window.__seek = (t) => { tl.pause(); tl.seek(Math.min(OPEN + t, tl.duration()), false); };
+  window.__seek(0);
+  if (new URLSearchParams(location.search).has('play')) {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    reduce ? tl.progress(1) : tl.play(OPEN);
+  }
+</script>
+</body></html>

@@ -1,0 +1,42 @@
+Context,Element,Range,Notes,Source
+UI,Button press feedback,100-160ms,"scale 0.97 on press, release slightly slower",Emil Kowalski
+UI,Tooltip / small popover,125-200ms,first tooltip delayed (~400-600ms hover delay) and animated; neighbours instant,Emil Kowalski
+UI,Dropdown / select / menu,150-250ms,origin at the trigger; 180ms feels faster than 400ms,Emil Kowalski
+UI,Modal / dialog,200-300ms,"centred, scale 0.96->1 + fade; exit shorter",Emil Kowalski
+UI,Drawer / sheet,300-500ms,drawer curve or spring; percentage translate,Emil Kowalski / Vaul
+UI,Toast,300-400ms,transitions not keyframes (retarget); exit same path,Sonner
+UI,Accordion,150-250ms,height is a layout cost - keep it short,Emil Kowalski
+UI,Tab indicator / segmented,200-300ms,ease-in-out; leading edge can run ahead of trailing,-
+UI,Hover colour/background,100-200ms,ease; gate behind (hover:hover) and (pointer:fine),-
+UI,List stagger per item,30-80ms,"product UI: total stagger <= 500ms, one staggered moment per view; showcase sites: shared rhythm (rows 60ms, cards 100ms)",Emil / HyperFrames
+UI,Hold-to-confirm,"1.5-2s linear press, 200ms release","asymmetric: deliberate slow, response snappy",Emil Kowalski
+UI,Keyboard shortcut / 100+ per day action,0ms,no animation ever,Emil Kowalski
+UI,Material 3 tokens,"short 50-200ms, medium 250-400ms, long 450-600ms, extra-long 700-1000ms",larger and longer-travel elements get longer durations,Material Design 3
+Web marketing,Hero load sequence,first frame composed; readable ~0.8s; settled <= 2.0s,LCP element visible at frame 0 (partial clip + scale); heading rises from t=0; every hero element performs,astudio
+Web marketing,Scroll reveal,0.9-1.4s,"showcase sites: expo.out/power4.out, reading order, overlapping 0.15-0.25s, fired once at ~85%; never under 0.6s (snappy); content visible without JS",astudio / gsap
+Web marketing,Page transition,300-600ms,View Transitions / Barba; exit 40-60% of enter,-
+Web marketing,Pinned scroll story,<= 2-3 screens of scroll,scrub 0.8-1.2 (smoothing); ease none for scrub-linked tweens,gsap
+Video,"Fast move (camera, title)",0.3-0.6s,"carry motion blur 6-12px on text, 15-20px full-frame at the fastest frame",HyperFrames
+Video,Single entry,<= 0.8s,"longer build = multi-element stagger, not a slow element",HyperFrames
+Video,Exit,40-50% shorter than entry,one smooth motion; never slide-stop-leave,HyperFrames
+Video,Overlap,next element starts at 30-50% of previous,"fully sequential reads robotic, all-at-once reads cheap",HyperFrames
+Video,Stagger letters / words / list,1 frame / 60-120ms / 40-80ms,-,HyperFrames
+Video,Text hold,0.5s + 0.3s per word; final line >= 2s,held dead still once landed,HyperFrames
+Video,Stillness before climax,0.3-0.75s,the dramatic comma before the payoff,HyperFrames
+Video,Shot length,avg 1.8-3s; montage 0.13-0.8s; demo hold 7-10s,something new every 2-4s,HyperFrames
+Video,Beat grid,frames per beat = fps x 60 / BPM,"compute each beat from its index; cut on the beat, change layout on the bar",HyperFrames
+Video,End card / logo lockup,last 5-10% of the film; CTA held 1.5-3s,"mark performed in, wordmark wipes in",HyperFrames
+Logo,Logo reveal / sting,1.5-3s (+0.5-1s hold),web intro under 1s if it blocks content,astudio
+Icons,Animated icon / Lottie micro,300-800ms,play once on state change; loops only for live status,astudio
+Loaders,Spinner revolution,0.8-1.2s linear,show only after ~300-500ms of waiting; skeleton preferred for layout,-
+3D,Camera move,1-2s ease-in-out,one hero move per shot,astudio
+3D,Background stage orbit,3-5 degrees per second,continuous motion that works,HyperFrames
+Mobile,Press feedback (RN/iOS),100-150ms scale 0.97,"feedback on press-in, commit on press-out",Expo skill
+Mobile,Sheet / navigation,"spring ~0.35-0.5s, damping ~0.8-1",springs for gestures; velocity carried,Apple HIG / Expo
+Web showcase,Heading split reveal (words/chars in masks),1.1-1.3s,"yPercent 110 -> 0, rotate 4-6 deg, words 50ms / chars 20ms stagger, expo.out",astudio site-motion
+Web showcase,Body text line reveal,1.0-1.2s,"SplitText lines in masks, yPercent 100 + opacity, lines 90ms stagger, 0.15s after the heading",astudio site-motion
+Web showcase,Image wipe + inner scale,1.3-1.5s wipe / 1.8-2.0s scale,clip-path inset(100% 0 0 0) -> 0 power4.inOut; image 1.25 -> 1 expo.out; then scrub parallax +-10%,astudio site-motion
+Web showcase,"Hover (label roll, underline, magnetic)",0.5-0.6s,"soft ease power3.out / cubic-bezier(0.25,1,0.5,1); magnetic via quickTo 0.6s",astudio site-motion
+Web showcase,Number count-up,1.4-1.8s,"power2.out, tabular figures, once",astudio site-motion
+Web showcase,Map route draw,length / 450-600 px/s (1.4-2.4s),"sine.inOut, traveller on the tip, pin drop on arrival (0.35s in + 0.3s squash)",astudio site-motion
+Web showcase,Smooth scroll (Lenis),lerp 0.08-0.1 / duration 1.2,desktop fine pointers only; synced to ScrollTrigger; off on touch and reduced motion,darkroom.engineering Lenis

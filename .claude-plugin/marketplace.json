@@ -1,0 +1,24 @@
+{
+  "name": "astudio-motion",
+  "owner": {
+    "name": "astudio",
+    "url": "https://astudio.one"
+  },
+  "plugins": [
+    {
+      "name": "astudio-motion",
+      "source": "./",
+      "description": "astudio Motion & 3D studio: UI motion, GSAP, SVG/logo animation, Lottie/Rive, video from code, Three.js, shaders, Blender, pro-tool handoff, native motion.",
+      "version": "1.1.0",
+      "author": {
+        "name": "astudio",
+        "url": "https://astudio.one"
+      },
+      "homepage": "https://github.com/whoamnesia/astudio-motion"
+    }
+  ],
+  "metadata": {
+    "description": "astudio.one Motion & 3D studio plugin for Claude Code",
+    "version": "1.0.0"
+  }
+}

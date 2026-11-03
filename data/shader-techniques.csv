@@ -1,0 +1,18 @@
+Technique,Keywords,Look,Cost,Library file,Use for
+Procedural noise / FBM,noise fbm perlin simplex value,"organic textures, clouds, grain",low-medium,procedural-noise.md,"backgrounds, displacement, grain"
+Domain warping,domain warp warped noise ink marble,"flowing liquid marble, ink in water",medium,domain-warping.md,"hero backgrounds, coffee crema swirl, smoke"
+2D SDF shapes,sdf 2d shapes circle box rounded,"crisp UI-like shapes, morphing blobs",low,sdf-2d.md,"logos in shaders, metaballs, loaders"
+3D SDF + ray marching,sdf 3d raymarch sphere tracing,"3D objects from math, soft shadows",high,"sdf-3d.md, ray-marching.md",abstract 3D heroes without models
+Colour palettes (cosine),palette cosine iq colour ramp,smooth brand gradients,very low,color-palette.md,mapping noise to brand colours
+Polar / kaleidoscope,polar uv kaleidoscope radial,"radial symmetry, tunnels",low,polar-uv-manipulation.md,"loaders, music visuals"
+Procedural 2D patterns,pattern tiles grid truchet,geometric tilings,low,procedural-2d-pattern.md,brand patterns that move
+Voronoi / cellular,voronoi cellular worley cells,"cells, cracks, organic grids",medium,voronoi-cellular-noise.md,"biology, glass, stained-glass"
+Lighting models,lighting pbr phong toon,shaded 3D in raymarching,medium,lighting-model.md,raymarched scenes
+Normal estimation,normal gradient sdf,correct shading of SDFs,low,normal-estimation.md,raymarched scenes
+"Post-processing (bloom, grade, glitch, grain)",post bloom tone map glitch grain vignette,filmic finish,medium,post-processing.md,final look of 3D/2D scenes
+"Camera effects (DoF, motion blur)",depth of field motion blur lens,cinematic lens,medium-high,camera-effects.md,video-like web scenes
+Particles in shaders,particles sparks snow fire,particle effects,medium-high,particle-system.md,"celebrations, atmosphere"
+Fluid simulation,fluid smoke ink navier stokes,interactive fluid,high (multipass),fluid-simulation.md,cursor-reactive heroes
+Image distortion (UV displacement),image hover distortion ripple rgb shift,images bending/rippling,low,(three/web-shaders reference),"gallery hovers, transitions between images"
+Gradient mesh / blob,gradient mesh blob aurora,soft moving gradients,low,domain-warping.md + color-palette.md,calm backgrounds (avoid purple-blue default)
+WebGL2 pitfalls,webgl2 errors precision version,-,-,webgl-pitfalls.md,debugging compile errors

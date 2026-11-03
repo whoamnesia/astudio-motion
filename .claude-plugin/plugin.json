@@ -1,0 +1,33 @@
+{
+  "name": "astudio-motion",
+  "version": "1.1.0",
+  "description": "astudio Motion & 3D studio for Claude Code: interface animation, motion review, GSAP and scroll storytelling, SVG and logo animation, Lottie and Rive, video from code (launch films, explainers, social clips), Three.js / React Three Fiber / WebGPU, shaders, Blender, After Effects / Cavalry / Cinema 4D / Unreal / Figma Motion handoff and native mobile motion - with a motion database, frame-accurate render-and-review tooling and an award-level bar.",
+  "author": {
+    "name": "astudio",
+    "url": "https://astudio.one"
+  },
+  "keywords": [
+    "motion",
+    "animation",
+    "motion-design",
+    "3d",
+    "gsap",
+    "scrolltrigger",
+    "lottie",
+    "rive",
+    "threejs",
+    "react-three-fiber",
+    "webgpu",
+    "shaders",
+    "glsl",
+    "blender",
+    "video",
+    "after-effects",
+    "figma-motion",
+    "reanimated"
+  ],
+  "license": "MIT",
+  "icon": ".claude-plugin/icon.png",
+  "homepage": "https://github.com/whoamnesia/astudio-motion",
+  "repository": "https://github.com/whoamnesia/astudio-motion"
+}
